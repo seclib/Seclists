@@ -2989,6 +2989,7 @@ p7pm
 pa
 pack
 package
+package.json
 packaged
 packages
 packaging
@@ -4398,6 +4399,7 @@ ver
 ver1
 ver2
 version
+version.json
 verwaltung
 vfs
 vi
