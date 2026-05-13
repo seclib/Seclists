@@ -2938,6 +2938,7 @@ erpnext/public/images/bank-logos/Yes_Bank.svg
 erpnext/public/images/bank-logos/Kotak_Mahindra.svg
 erpnext/public/images/bank-logos/Deutsche_Bank.svg
 erpnext/public/images/bank-logos/Amex.svg
+erpnext/public/images/bank-logos/Stripe.svg
 erpnext/public/images/bank-logos/Punjab_National_Bank.svg
 erpnext/public/images/bank-logos/Fi_Bank.svg
 erpnext/public/images/bank-logos/RBL_Bank-dark.svg
@@ -4088,10 +4089,6 @@ erpnext/stock/report/item_shortage_report/item_shortage_report.py
 erpnext/stock/report/item_shortage_report/__init__.py
 erpnext/stock/report/item_shortage_report/test_item_shortage_report.py
 erpnext/stock/report/item_shortage_report/item_shortage_report.js
-erpnext/stock/report/supplier_wise_sales_analytics/supplier_wise_sales_analytics.js
-erpnext/stock/report/supplier_wise_sales_analytics/supplier_wise_sales_analytics.json
-erpnext/stock/report/supplier_wise_sales_analytics/__init__.py
-erpnext/stock/report/supplier_wise_sales_analytics/supplier_wise_sales_analytics.py
 erpnext/stock/report/stock_ageing/stock_ageing.json
 erpnext/stock/report/stock_ageing/stock_ageing.js
 erpnext/stock/report/stock_ageing/__init__.py
@@ -4122,6 +4119,10 @@ erpnext/stock/report/negative_batch_report/negative_batch_report.js
 erpnext/stock/report/negative_batch_report/negative_batch_report.json
 erpnext/stock/report/negative_batch_report/negative_batch_report.py
 erpnext/stock/report/negative_batch_report/__init__.py
+erpnext/stock/report/item_wise_consumption/item_wise_consumption.py
+erpnext/stock/report/item_wise_consumption/__init__.py
+erpnext/stock/report/item_wise_consumption/item_wise_consumption.js
+erpnext/stock/report/item_wise_consumption/item_wise_consumption.json
 erpnext/stock/report/stock_ledger/stock_ledger.py
 erpnext/stock/report/stock_ledger/__init__.py
 erpnext/stock/report/stock_ledger/stock_ledger.json

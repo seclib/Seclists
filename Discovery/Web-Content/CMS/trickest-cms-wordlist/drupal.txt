@@ -2752,6 +2752,7 @@ core/tests/Drupal/KernelTests/Core/Config/CacheabilityMetadataConfigOverrideTest
 core/tests/Drupal/KernelTests/Core/Config/ConfigImportRenameValidationTest.php
 core/tests/Drupal/KernelTests/Core/Config/FileStorageFactoryTest.php
 core/tests/Drupal/KernelTests/Core/EventSubscriber/ExceptionLoggingSubscriberTest.php
+core/tests/Drupal/KernelTests/Core/EventSubscriber/HttpResponseDebugCacheabilityHeadersTest.php
 core/tests/Drupal/KernelTests/Core/RouteProcessor/RouteProcessorCurrentIntegrationTest.php
 core/tests/Drupal/KernelTests/Core/RouteProcessor/RouteNoneTest.php
 core/tests/Drupal/KernelTests/Core/Theme/FrontMatterTest.php
@@ -2781,6 +2782,7 @@ core/tests/Drupal/KernelTests/Core/File/StreamWrapperTest.php
 core/tests/Drupal/KernelTests/Core/File/RemoteFileDirectoryTest.php
 core/tests/Drupal/KernelTests/Core/File/FileMoveTest.php
 core/tests/Drupal/KernelTests/Core/File/DirectoryTest.php
+core/tests/Drupal/KernelTests/Core/File/FileDeleteRecursiveRemoteTest.php
 core/tests/Drupal/KernelTests/Core/File/FileDeleteTest.php
 core/tests/Drupal/KernelTests/Core/File/FileSystemTest.php
 core/tests/Drupal/KernelTests/Core/File/HtaccessTest.php
@@ -3209,6 +3211,7 @@ core/tests/Drupal/FunctionalTests/Core/Recipe/RecipeCommandTest.php
 core/tests/Drupal/FunctionalTests/Core/Container/ServiceDeprecationTest.php
 core/tests/Drupal/FunctionalTests/Core/Test/ModuleInstallBatchTest.php
 core/tests/Drupal/FunctionalTests/Bootstrap/ErrorContainer.php
+core/tests/Drupal/FunctionalTests/Bootstrap/LegacyFrontControllerTest.php
 core/tests/Drupal/FunctionalTests/Bootstrap/UncaughtExceptionTest.php
 core/tests/Drupal/FunctionalTests/Bootstrap/ExceptionContainer.php
 core/tests/Drupal/FunctionalTests/Breadcrumb/Breadcrumb404Test.php
@@ -5696,6 +5699,10 @@ core/modules/system/tests/modules/error_service_test/error_service_test.routing.
 core/modules/system/tests/modules/error_service_test/error_service_test.info.yml
 core/modules/system/tests/modules/js_displace/js_displace.info.yml
 core/modules/system/tests/modules/js_displace/src/Hook/JsDisplaceThemeHooks.php
+core/modules/system/tests/modules/legacy_front_controller_test/src/Controller/TestController.php
+core/modules/system/tests/modules/legacy_front_controller_test/legacy_front_controller_test.info.yml
+core/modules/system/tests/modules/legacy_front_controller_test/legacy_front_controller_test.routing.yml
+core/modules/system/tests/modules/legacy_front_controller_test/test_index.php.template
 core/modules/system/tests/modules/database_test/src/Controller/DatabaseTestController.php
 core/modules/system/tests/modules/database_test/src/EventSubscriber/DatabaseEventSubscriber.php
 core/modules/system/tests/modules/database_test/src/Hook/DatabaseTestHooks.php
@@ -5861,6 +5868,9 @@ core/modules/system/tests/modules/system_test/src/Hook/SystemTestHooks.php
 core/modules/system/tests/modules/system_test/src/Form/CopyFieldValueTestForm.php
 core/modules/system/tests/modules/system_test/system_test.module
 core/modules/system/tests/modules/system_test/system_test.permissions.yml
+core/modules/system/tests/modules/http_response_debug_cacheability_headers_test/http_response_debug_cacheability_headers_test.info.yml
+core/modules/system/tests/modules/http_response_debug_cacheability_headers_test/src/Controller/TestResponseController.php
+core/modules/system/tests/modules/http_response_debug_cacheability_headers_test/http_response_debug_cacheability_headers_test.routing.yml
 core/modules/system/tests/modules/service_provider_test/service_provider_test.services.yml
 core/modules/system/tests/modules/service_provider_test/src/TestFileUsage.php
 core/modules/system/tests/modules/service_provider_test/src/ServiceProviderTestServiceProvider.php
@@ -9906,6 +9916,7 @@ core/modules/responsive_image/tests/src/Functional/Rest/ResponsiveImageStyleXmlA
 core/modules/responsive_image/tests/src/Functional/Rest/ResponsiveImageStyleJsonCookieTest.php
 core/modules/responsive_image/tests/src/Unit/ResponsiveImageStyleConfigEntityUnitTest.php
 core/modules/responsive_image/tests/src/Kernel/ResponsiveImageIntegrationTest.php
+core/modules/responsive_image/tests/src/Kernel/ResponsiveImageFormatterTest.php
 core/modules/responsive_image/tests/src/Kernel/ResponsiveImageStyleValidationTest.php
 core/modules/responsive_image/tests/src/FunctionalJavascript/ResponsiveImageFieldUiTest.php
 core/modules/responsive_image/responsive_image.links.menu.yml
@@ -10029,6 +10040,7 @@ core/modules/field/tests/src/Unit/FieldConfigAccessControlHandlerTest.php
 core/modules/field/tests/src/Unit/FieldConfigEntityUnitTest.php
 core/modules/field/tests/src/Unit/FieldStorageConfigAccessControlHandlerTest.php
 core/modules/field/tests/src/Unit/FieldStorageConfigEntityUnitTest.php
+core/modules/field/tests/src/Unit/Plugin/Validation/Constraint/NoFieldItemsExistWithHigherCardinalityTest.php
 core/modules/field/tests/src/Unit/Plugin/Field/FieldFormatter/StringFormatterTest.php
 core/modules/field/tests/src/Unit/FieldUninstallValidatorTest.php
 core/modules/field/tests/src/Traits/EntityReferenceFieldCreationTrait.php
@@ -10048,6 +10060,7 @@ core/modules/field/tests/src/Kernel/Timestamp/TimestampFormatterTest.php
 core/modules/field/tests/src/Kernel/Timestamp/TimestampItemTest.php
 core/modules/field/tests/src/Kernel/FieldDisplayTest.php
 core/modules/field/tests/src/Kernel/FieldImportCreateTest.php
+core/modules/field/tests/src/Kernel/Plugin/Validation/Constraint/NoFieldItemsExistWithHigherCardinalityTest.php
 core/modules/field/tests/src/Kernel/Email/EmailItemTest.php
 core/modules/field/tests/src/Kernel/ConfigFieldDefinitionTest.php
 core/modules/field/tests/src/Kernel/FieldTypeCategoryDiscoveryTest.php
@@ -10099,7 +10112,9 @@ core/modules/field/src/FieldStorageConfigAccessControlHandler.php
 core/modules/field/src/EntityDisplayRebuilder.php
 core/modules/field/src/Plugin/ConfigAction/AddToAllBundles.php
 core/modules/field/src/Plugin/Validation/Constraint/FieldStorageIndexesConstraint.php
+core/modules/field/src/Plugin/Validation/Constraint/NoFieldItemsExistWithHigherCardinality.php
 core/modules/field/src/Plugin/Validation/Constraint/FieldStorageIndexesConstraintValidator.php
+core/modules/field/src/Plugin/Validation/Constraint/NoFieldItemsExistWithHigherCardinalityValidator.php
 core/modules/field/src/FieldStorageConfigUpdateForbiddenException.php
 core/modules/field/src/FieldStorageConfigStorage.php
 core/modules/field/src/FieldConfigInterface.php
@@ -10210,8 +10225,8 @@ core/modules/locale/tests/src/Functional/LocaleTranslationUiTest.php
 core/modules/locale/tests/src/Functional/LocaleConfigTranslationTest.php
 core/modules/locale/tests/src/Functional/LocaleJavascriptTranslationTest.php
 core/modules/locale/tests/src/Functional/LocaleImportFunctionalTest.php
+core/modules/locale/tests/src/Unit/LocaleProjectRepositoryTest.php
 core/modules/locale/tests/src/Unit/StringBaseTest.php
-core/modules/locale/tests/src/Unit/LocaleProjectStorageTest.php
 core/modules/locale/tests/src/Unit/LocaleTranslationTest.php
 core/modules/locale/tests/src/Unit/Menu/LocaleLocalTasksTest.php
 core/modules/locale/tests/src/Unit/LocaleLookupTest.php
@@ -10225,7 +10240,6 @@ core/modules/locale/tests/src/Kernel/LocaleUpdateTest.php
 core/modules/locale/tests/src/Kernel/LocaleConfigManagerTest.php
 core/modules/locale/tests/src/Kernel/LocaleTranslationTest.php
 core/modules/locale/tests/src/Kernel/LocaleConfigurableLanguageManagerTest.php
-core/modules/locale/tests/src/Kernel/LocaleTranslationProjectsTest.php
 core/modules/locale/tests/src/Kernel/LocaleStringTest.php
 core/modules/locale/tests/test.xx.po
 core/modules/locale/tests/test.nl.po
@@ -10248,7 +10262,9 @@ core/modules/locale/src/File/RemoteFileStatus.php
 core/modules/locale/src/File/LocaleFileManager.php
 core/modules/locale/src/File/LocaleFile.php
 core/modules/locale/src/File/RemoteFileInfo.php
+core/modules/locale/src/LocaleProjectRepository.php
 core/modules/locale/src/Gettext.php
+core/modules/locale/src/LocaleProjectChecker.php
 core/modules/locale/src/PluralFormula.php
 core/modules/locale/src/LocaleEvents.php
 core/modules/locale/src/Plugin/QueueWorker/LocaleTranslation.php
@@ -10262,6 +10278,7 @@ core/modules/locale/src/TranslationString.php
 core/modules/locale/src/PoDatabaseReader.php
 core/modules/locale/src/LocaleDefaultOptions.php
 core/modules/locale/src/LocaleConfigManager.php
+core/modules/locale/src/LocaleTranslatableProject.php
 core/modules/locale/src/LocaleConfigSubscriber.php
 core/modules/locale/src/LocaleProjectStorage.php
 core/modules/locale/src/Hook/LocaleThemeHooks.php
@@ -10747,7 +10764,6 @@ core/modules/node/tests/src/Functional/NodeTypeTest.php
 core/modules/node/tests/src/Functional/NodeAccessGrantsCacheContextTest.php
 core/modules/node/tests/src/Functional/NodeCacheTagsTest.php
 core/modules/node/tests/src/Functional/NodeAccessFieldTest.php
-core/modules/node/tests/src/Functional/NodeQueryAlterTest.php
 core/modules/node/tests/src/Functional/NodeAccessUnpublishedCacheabilityTest.php
 core/modules/node/tests/src/Functional/NodePostSettingsTest.php
 core/modules/node/tests/src/Functional/NodeAdminTest.php
@@ -10838,6 +10854,7 @@ core/modules/node/tests/src/Kernel/NodeViewBuilderTest.php
 core/modules/node/tests/src/Kernel/NodeAccessLanguageAwareTest.php
 core/modules/node/tests/src/Kernel/NodeListBuilderTest.php
 core/modules/node/tests/src/Kernel/NodeFieldAccessTest.php
+core/modules/node/tests/src/Kernel/NodeQueryAlterTest.php
 core/modules/node/tests/src/Kernel/NodeLinksTest.php
 core/modules/node/tests/src/Kernel/NodeFieldOverridesTest.php
 core/modules/node/tests/src/Kernel/NodeTemplateSuggestionsTest.php
@@ -16120,6 +16137,8 @@ core/lib/Drupal/Core/Password/DefaultPasswordGenerator.php
 core/lib/Drupal/Core/Password/PhpassHashedPasswordBase.php
 core/lib/Drupal/Core/Password/PasswordInterface.php
 core/lib/Drupal/Core/Password/PasswordGeneratorInterface.php
+core/lib/Drupal/Core/Runtime/DeprecatedAutoloadAccess.php
+core/lib/Drupal/Core/Runtime/DrupalRuntime.php
 core/lib/Drupal/Core/GeneratedButton.php
 core/.yarnrc.yml
 core/INSTALL.mysql.txt
@@ -16133,6 +16152,7 @@ core/core.libraries.yml
 .editorconfig
 index.php
 .gitattributes
+autoload_runtime.php
 .gitlab-ci.yml
 update.php
 sites/README.txt
@@ -16177,6 +16197,7 @@ composer/Plugin/Scaffold/Interpolator.php
 composer/Plugin/Scaffold/ScaffoldFilePath.php
 composer/Plugin/Scaffold/TESTING.txt
 composer/Plugin/Scaffold/PostPackageEventListenerInterface.php
+composer/Plugin/Scaffold/GenerateAutoloadRuntimeReferenceFile.php
 composer/Plugin/ProjectMessage/README.md
 composer/Plugin/ProjectMessage/composer.json
 composer/Plugin/ProjectMessage/LICENSE.txt
