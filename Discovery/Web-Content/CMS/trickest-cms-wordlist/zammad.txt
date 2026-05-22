@@ -1780,6 +1780,7 @@ lib/mixin/rails_logger.rb
 lib/calendar_subscriptions/tickets.rb
 lib/validations/mention_validator.rb
 lib/validations/object_manager/attribute_validator/min_max.rb
+lib/validations/object_manager/attribute_validator/external_data_source.rb
 lib/validations/object_manager/attribute_validator/option.rb
 lib/validations/object_manager/attribute_validator/required.rb
 lib/validations/object_manager/attribute_validator/backend.rb
@@ -6599,6 +6600,7 @@ app/frontend/apps/desktop/composables/accessibility/__tests__/useAnnouncer.spec.
 app/frontend/apps/desktop/composables/useConnection.ts
 app/frontend/apps/desktop/composables/useScrollPosition.ts
 app/frontend/apps/desktop/composables/useTransitionConfig.ts
+app/frontend/apps/desktop/composables/useKeepAliveHooks.ts
 app/frontend/apps/desktop/composables/authentication/useSignupForm.ts
 app/frontend/apps/desktop/composables/useUserTaskbarTab.ts
 app/frontend/apps/desktop/composables/useFilePreviewViewer.ts
@@ -6609,6 +6611,7 @@ app/frontend/apps/desktop/composables/useResizeGridColumns.ts
 app/frontend/apps/desktop/composables/__tests__/useTransitionConfig.spec.ts
 app/frontend/apps/desktop/composables/__tests__/useResizeGridColumns.spec.ts
 app/frontend/apps/desktop/composables/__tests__/useElementScroll.spec.ts
+app/frontend/apps/desktop/composables/__tests__/useKeepAliveHooks.spec.ts
 app/frontend/apps/desktop/composables/__tests__/useOverlayContainer.spec.ts
 app/frontend/apps/desktop/composables/__tests__/usePrintMode.spec.ts
 app/frontend/apps/desktop/router/index.ts
@@ -6685,6 +6688,8 @@ app/frontend/apps/desktop/components/Search/QuickSearch/QuickSearchResultList/__
 app/frontend/apps/desktop/components/Search/QuickSearch/QuickSearchInput/QuickSearchInput.vue
 app/frontend/apps/desktop/components/Search/QuickSearch/QuickSearchInput/__tests__/QuickSearchInput.spec.ts
 app/frontend/apps/desktop/components/Search/QuickSearch/__tests__/QuickSearch.spec.ts
+app/frontend/apps/desktop/components/Search/composables/__tests__/useSearchTitle.spec.ts
+app/frontend/apps/desktop/components/Search/composables/useSearchTitle.ts
 app/frontend/apps/desktop/components/Search/types.ts
 app/frontend/apps/desktop/components/Search/plugins/index.ts
 app/frontend/apps/desktop/components/Search/plugins/user.ts
@@ -9272,6 +9277,7 @@ db/migrate/20180719033247_add_confidential_to_doorkeeper_application.rb
 db/migrate/20221012075517_rename_max_tabs_setting.rb
 db/migrate/20180306084119_custom_html_email_css_font.rb
 db/migrate/20190408000001_issue_2541_fix_notification_email_without_body.rb
+db/migrate/20260513153605_issue_6126_ticket_state_default_close.rb
 db/migrate/20180202000001_sidebar_customer_open_ticket_colored.rb
 db/migrate/20170529000002_setting_delivery_permanent_failed.rb
 db/migrate/20210428125300_issue_3523_new_operator.rb
@@ -10746,6 +10752,7 @@ spec/lib/validations/object_manager/attribute_validator/data_types_spec.rb
 spec/lib/validations/object_manager/attribute_validator/option_spec.rb
 spec/lib/validations/object_manager/attribute_validator/min_max_spec.rb
 spec/lib/validations/object_manager/attribute_validator/max_length_spec.rb
+spec/lib/validations/object_manager/attribute_validator/external_data_source_spec.rb
 spec/lib/validations/object_manager/attribute_validator/backend_examples.rb
 spec/lib/validations/object_manager/attribute_validator/future_past_spec.rb
 spec/lib/validations/object_manager/attribute_validator_spec.rb
@@ -11882,6 +11889,7 @@ spec/system/knowledge_base/locale/answer/edit_spec.rb
 spec/system/knowledge_base/locale/answer/reader_spec.rb
 spec/system/knowledge_base/locale/knowledge_base/permissions_spec.rb
 spec/system/knowledge_base/locale/search_spec.rb
+spec/system/knowledge_base/granular_permissions_spec.rb
 spec/system/knowledge_base/feed_spec.rb
 spec/system/admin_password_auth_spec.rb
 spec/system/navigation_spec.rb
@@ -12363,6 +12371,7 @@ public/assets/chat/znuny_open_by_button.html
 public/assets/chat/chat-no-jquery.coffee
 public/assets/chat/gulpfile.js
 public/assets/chat/jquery-3.6.0.min.js
+public/assets/chat/pnpm-workspace.yaml
 public/assets/chat/znuny-no-jquery-open_by_button.html
 public/assets/chat/views/chat.eco
 public/assets/chat/views/message.eco
