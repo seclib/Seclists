@@ -1773,6 +1773,11 @@ erpnext/selling/number_card/sales_orders_to_bill/sales_orders_to_bill.json
 erpnext/selling/doctype/supplier_number_at_customer/__init__.py
 erpnext/selling/doctype/supplier_number_at_customer/supplier_number_at_customer.json
 erpnext/selling/doctype/supplier_number_at_customer/supplier_number_at_customer.py
+erpnext/selling/doctype/proforma_invoice/__init__.py
+erpnext/selling/doctype/proforma_invoice/test_proforma_invoice.py
+erpnext/selling/doctype/proforma_invoice/proforma_invoice.js
+erpnext/selling/doctype/proforma_invoice/proforma_invoice.json
+erpnext/selling/doctype/proforma_invoice/proforma_invoice.py
 erpnext/selling/doctype/__init__.py
 erpnext/selling/doctype/quotation/quotation.py
 erpnext/selling/doctype/quotation/__init__.py
@@ -1863,6 +1868,9 @@ erpnext/selling/doctype/sales_order_item/__init__.py
 erpnext/selling/doctype/sales_order_item/sales_order_item.py
 erpnext/selling/doctype/sales_order_item/README.md
 erpnext/selling/doctype/sales_order_item/sales_order_item.json
+erpnext/selling/doctype/proforma_invoice_item/__init__.py
+erpnext/selling/doctype/proforma_invoice_item/proforma_invoice_item.py
+erpnext/selling/doctype/proforma_invoice_item/proforma_invoice_item.json
 erpnext/selling/doctype/sales_team/sales_team.json
 erpnext/selling/doctype/sales_team/__init__.py
 erpnext/selling/doctype/sales_team/sales_team.py
@@ -1892,6 +1900,8 @@ erpnext/selling/print_format/sales_order_standard/__init__.py
 erpnext/selling/print_format/sales_order_standard/sales_order_standard.json
 erpnext/selling/print_format/return_pos_invoice/__init__.py
 erpnext/selling/print_format/return_pos_invoice/return_pos_invoice.json
+erpnext/selling/print_format/proforma_invoice/__init__.py
+erpnext/selling/print_format/proforma_invoice/proforma_invoice.json
 erpnext/selling/print_format/__init__.py
 erpnext/selling/print_format/quotation_with_item_image/__init__.py
 erpnext/selling/print_format/quotation_with_item_image/quotation_with_item_image.json
@@ -2495,6 +2505,7 @@ erpnext/patches/v16_0/drop_redundant_serial_no_index_from_sabb.py
 erpnext/patches/v16_0/update_company_custom_field_in_bin.py
 erpnext/patches/v16_0/fix_titles.py
 erpnext/patches/v16_0/set_default_close_opportunity_after_days.py
+erpnext/patches/v16_0/recompute_production_plan_reserved_qty.py
 erpnext/patches/v16_0/depends_on_inv_dimensions.py
 erpnext/patches/v16_0/merge_repost_settings_to_accounts_settings.py
 erpnext/config/projects.py
@@ -3862,6 +3873,7 @@ erpnext/controllers/__init__.py
 erpnext/controllers/accounts_controller.py
 erpnext/controllers/item_variant.py
 erpnext/controllers/website_list_for_contact.py
+erpnext/controllers/draft_links.py
 erpnext/controllers/sales_and_purchase_return.py
 erpnext/controllers/stock_controller.py
 erpnext/controllers/status_updater.py
@@ -3886,6 +3898,7 @@ erpnext/controllers/tests/test_reactivity.py
 erpnext/controllers/tests/test_transaction_base.py
 erpnext/controllers/tests/test_queries.py
 erpnext/controllers/tests/test_item_variant.py
+erpnext/controllers/tests/test_draft_links.py
 erpnext/controllers/tests/test_selling_controller.py
 erpnext/controllers/tests/test_item_wise_tax_details.py
 erpnext/controllers/selling_controller.py
@@ -5160,6 +5173,7 @@ erpnext/public/js/utils/item_selector.js
 erpnext/public/js/utils/sales_common.js
 erpnext/public/js/utils/customer_quick_entry.js
 erpnext/public/js/utils/landed_taxes_and_charges_common.js
+erpnext/public/js/utils/draft_link_guard.js
 erpnext/public/js/utils/serial_batch_inline_editor.js
 erpnext/public/js/utils/unreconcile.js
 erpnext/public/js/utils/contact_address_quick_entry.js
@@ -5176,6 +5190,7 @@ erpnext/public/js/address.js
 erpnext/public/js/communication.js
 erpnext/public/js/utils.js
 erpnext/public/js/bom_configurator/bom_configurator.bundle.js
+erpnext/public/js/sales_order_proforma.js
 erpnext/public/js/controllers/accounts.js
 erpnext/public/js/controllers/buying.js
 erpnext/public/js/controllers/stock_controller.js
