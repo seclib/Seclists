@@ -6652,6 +6652,7 @@ tests/_support/UnitTester.php
 tests/_support/FunctionalTester.php
 tests/_support/GqlTester.php
 tests/.env.example.pgsql
+tests/unit/console/controllers/FieldsControllerTest.php
 tests/unit/console/controllers/SetupControllerTest.php
 tests/unit/CraftTest.php
 tests/unit/traits/NameTraitTest.php
@@ -6788,6 +6789,7 @@ tests/unit/db/ActiveRecordTest.php
 tests/unit/db/CommandTest.php
 tests/unit/db/QueryParamTest.php
 tests/unit/enums/ColorEnumTest.php
+tests/unit/cache/DbCacheTest.php
 tests/unit/conditions/rules/BaseNumberConditionRuleTest.php
 tests/unit/conditions/rules/DateCreatedConditionRuleTest.php
 tests/unit/conditions/EntryConditionTest.php
